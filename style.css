@@ -9,11 +9,11 @@ body {
 
 .card {
   position: relative;
-  width: 250px;
+  width: 244px;
   height: 400px;
   transform-style: preserve-3d;
   transition: transform 1s;
-  border-radius: 10px; /* Add rounded corners */
+  border-radius: 12px; /* Add rounded corners */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,12 +44,16 @@ body {
   align-items: center;
   text-align: center;
   font-color:#fff;
+  background-image: url('images/card.jpg');
+  background-size: contain;
 }
 
 .card .back {
+
   background-color: #333;
   background: linear-gradient(to bottom, #9a92c7, #1b123bce);
   transform: rotateY(180deg);
+  backface-visibility: hidden;
 }
 
 .card img {
