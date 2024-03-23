@@ -12,8 +12,8 @@
             perspective: 800px;
         }
         .card {
-            width: 200px;
-            height: 300px;
+            width: 300px;
+            height: 400px;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -43,17 +43,46 @@
             transform: rotateY(180deg);
         }
         img {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
+        }
+        .card__spark {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ffd700;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .card.rotated .card__spark {
+            opacity: 1;
+            transform: translateY(-50px);
+        }
+        .card__spark--1 {
+            top: 20px;
+            left: 20px;
+        }
+        .card__spark--2 {
+            top: 20px;
+            right: 20px;
+        }
+        .card__spark--3 {
+            bottom: 20px;
+            left: 20px;
+        }
+        .card__spark--4 {
+            bottom: 20px;
+            right: 20px;
         }
         @media (max-width: 600px) {
             .card {
-                width: 150px;
-                height: 225px;
+                width: 250px;
+                height: 350px;
             }
             img {
-                width: 75px;
-                height: 75px;
+                width: 125px;
+                height: 125px;
             }
         }
     </style>
@@ -63,6 +92,10 @@
         <div class="card__face card__face--front">
             <img id="pokemon-image" src="">
             <h2 id="pokemon-name"></h2>
+            <div class="card__spark card__spark--1"></div>
+            <div class="card__spark card__spark--2"></div>
+            <div class="card__spark card__spark--3"></div>
+            <div class="card__spark card__spark--4"></div>
         </div>
         <div class="card__face card__face--back">
             <h3>Abilities:</h3>
