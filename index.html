@@ -4,60 +4,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="card" class="card">
-        <div class="card__face card__face--front">
-            <img id="pokemon-image" src="">
-            <h2 id="pokemon-name"></h2>
+    <div class="card" ontouchstart="this.classList.toggle('rotate');" onclick="this.classList.toggle('rotate');">
+        <div class="front">
+          <img id="pokemon-image" src="" alt="">
+          <h2 id="pokemon-name"></h2>
+          <p id="pokemon-info"></p>
         </div>
-        <div class="card__face card__face--back"></div>
-    </div>
+        <div class="back">
+          <img src="images/_card.jpg" alt="">
+        </div>
+      </div>
 
 <script>
-    let isFront = true; // Keep track of whether the front of the card is showing
-    let nextPokemonData = null; // Store data about the next Pokémon to be displayed
+   const pokemonImage = document.getElementById('pokemon-image');
+const pokemonName = document.getElementById('pokemon-name');
+const pokemonInfo = document.getElementById('pokemon-info');
 
-    // Fetch data about a random Pokémon from the PokeAPI
-    function fetchRandomPokemon() {
-        const randomId = Math.floor(Math.random() * 898) + 1; // There are 898 Pokémon in the National Pokédex
-        fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`)
-            .then(response => response.json())
-            .then(data => {
-                nextPokemonData = data; // Store the data for later
-            })
-            .catch(error => console.error('Error:', error));
-    }
-
-    // Update the display with data about the next Pokémon
-    function updateDisplay() {
-        // Display the Pokémon's name and image on the front of the card
-        document.getElementById('pokemon-name').textContent = nextPokemonData.name;
-        document.getElementById('pokemon-image').src = nextPokemonData.sprites.front_default;
-
-        // Display the Pokémon's abilities on the back of the card
-        const abilitiesList = document.getElementById('pokemon-abilities');
-        abilitiesList.innerHTML = ''; // Clear the list of previous abilities
-        nextPokemonData.abilities.forEach(ability => {
-            const abilityItem = document.createElement('li');
-            abilityItem.textContent = ability.ability.name;
-            abilitiesList.appendChild(abilityItem);
-        });
-
-        nextPokemonData = null; // Clear the data for the next Pokémon
-    }
-
-    // Fetch data about a random Pokémon when the page loads
-    fetchRandomPokemon();
-
-    // Rotate the card and fetch data about a random Pokémon when it's clicked, if the back is showing
-    document.getElementById('card').addEventListener('click', function() {
-        this.classList.toggle('rotated');
-        if (!isFront) {
-            fetchRandomPokemon();
-        } else if (nextPokemonData) {
-            updateDisplay();
-        }
-        isFront = !isFront; // Update the state of the card
+function loadPokemonData() {
+  fetch('https://pokeapi.co/api/v2/pokemon/' + Math.floor(Math.random() * 898) + 1)
+    .then(response => response.json())
+    .then(data => {
+      pokemonImage.src = data.sprites.front_default;
+      pokemonName.textContent = data.name;
+      pokemonInfo.textContent = data.abilities.map(ability => ability.ability.name).join(', ') + '.'
     });
+}
+
+loadPokemonData();
+
+document.querySelector('.card').addEventListener('click', function() {
+  if (!this.classList.contains('rotate')) {
+    loadPokemonData();
+  }
+});
 </script>
 </body>
 </html>
