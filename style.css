@@ -5,8 +5,12 @@ body {
   height: 100vh;
   margin: 0;
   background-color: var(--tg-theme-bg-color); /* Add background color */
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
-
+.prevent-select{
+  user-select: none;
+}
 .card {
   position: relative;
   width: 244px;
