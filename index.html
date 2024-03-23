@@ -1,1 +1,106 @@
-<h1>Hellow world</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            perspective: 800px;
+        }
+        .card {
+            width: 200px;
+            height: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.5s;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        .card.rotated {
+            transform: rotateY(180deg);
+        }
+        .card__face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .card__face--back {
+            transform: rotateY(180deg);
+        }
+        img {
+            width: 100px;
+            height: 100px;
+        }
+        @media (max-width: 600px) {
+            .card {
+                width: 150px;
+                height: 225px;
+            }
+            img {
+                width: 75px;
+                height: 75px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="card" class="card">
+        <div class="card__face card__face--front">
+            <img id="pokemon-image" src="">
+            <h2 id="pokemon-name"></h2>
+        </div>
+        <div class="card__face card__face--back">
+            <h3>Abilities:</h3>
+            <ul id="pokemon-abilities"></ul>
+        </div>
+    </div>
+
+<script>
+    // Fetch data about a random Pokémon from the PokeAPI
+    function fetchRandomPokemon() {
+        const randomId = Math.floor(Math.random() * 898) + 1; // There are 898 Pokémon in the National Pokédex
+        fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`)
+            .then(response => response.json())
+            .then(data => {
+                // Display the Pokémon's name and image on the front of the card
+                document.getElementById('pokemon-name').textContent = data.name;
+                document.getElementById('pokemon-image').src = data.sprites.front_default;
+
+                // Display the Pokémon's abilities on the back of the card
+                const abilitiesList = document.getElementById('pokemon-abilities');
+                abilitiesList.innerHTML = ''; // Clear the list of previous abilities
+                data.abilities.forEach(ability => {
+                    const abilityItem = document.createElement('li');
+                    abilityItem.textContent = ability.ability.name;
+                    abilitiesList.appendChild(abilityItem);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    // Fetch data about a random Pokémon when the page loads
+    fetchRandomPokemon();
+
+    // Rotate the card and fetch data about a random Pokémon when it's clicked
+    document.getElementById('card').addEventListener('click', function() {
+        this.classList.toggle('rotated');
+        fetchRandomPokemon();
+    });
+</script>
+</body>
+</html>
