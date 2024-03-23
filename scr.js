@@ -2,6 +2,10 @@ const pokemonImage = document.getElementById('pokemon-image');
 const pokemonName = document.getElementById('pokemon-name');
 const pokemonInfo = document.getElementById('pokemon-info');
 
+let tg = window.Telegram.WebApp;
+
+tg.expand();
+
 function loadPokemonData() {
   fetch('https://pokeapi.co/api/v2/pokemon/' + (Math.floor(Math.random() * 898) + 1))
     .then(response => response.json())
