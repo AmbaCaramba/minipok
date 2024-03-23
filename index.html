@@ -71,6 +71,8 @@
     </div>
 
 <script>
+    let isFront = true; // Keep track of whether the front of the card is showing
+
     // Fetch data about a random Pokémon from the PokeAPI
     function fetchRandomPokemon() {
         const randomId = Math.floor(Math.random() * 898) + 1; // There are 898 Pokémon in the National Pokédex
@@ -96,10 +98,13 @@
     // Fetch data about a random Pokémon when the page loads
     fetchRandomPokemon();
 
-    // Rotate the card and fetch data about a random Pokémon when it's clicked
+    // Rotate the card and fetch data about a random Pokémon when it's clicked, if the front is showing
     document.getElementById('card').addEventListener('click', function() {
         this.classList.toggle('rotated');
-        fetchRandomPokemon();
+        if (isFront) {
+            fetchRandomPokemon();
+        }
+        isFront = !isFront; // Update the state of the card
     });
 </script>
 </body>
