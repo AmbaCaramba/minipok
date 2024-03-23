@@ -5,38 +5,15 @@
 </head>
 <body>
     <div class="card" ontouchstart="this.classList.toggle('rotate');" onclick="this.classList.toggle('rotate');">
-        <div class="front">
+        <div class="back">
           <img id="pokemon-image" src="" alt="">
           <h2 id="pokemon-name"></h2>
           <p id="pokemon-info"></p>
         </div>
-        <div class="back">
-          <img src="images/_card.jpg" alt="">
+        <div class="front">
+          <img src="images/card.jpg" alt="">
         </div>
       </div>
-
-<script>
-   const pokemonImage = document.getElementById('pokemon-image');
-const pokemonName = document.getElementById('pokemon-name');
-const pokemonInfo = document.getElementById('pokemon-info');
-
-function loadPokemonData() {
-  fetch('https://pokeapi.co/api/v2/pokemon/' + Math.floor(Math.random() * 898) + 1)
-    .then(response => response.json())
-    .then(data => {
-      pokemonImage.src = data.sprites.front_default;
-      pokemonName.textContent = data.name;
-      pokemonInfo.textContent = data.abilities.map(ability => ability.ability.name).join(', ') + '.'
-    });
-}
-
-loadPokemonData();
-
-document.querySelector('.card').addEventListener('click', function() {
-  if (!this.classList.contains('rotate')) {
-    loadPokemonData();
-  }
-});
-</script>
+<script src="scr.js"></script>
 </body>
 </html>
