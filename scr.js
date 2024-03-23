@@ -18,10 +18,14 @@ function loadPokemonData() {
 
 loadPokemonData();
 
+var card = document.querySelector('.card')
+card.addEventListener('touchstart', function() {
+  if (!this.classList.contains('rotate')) {
+    loadPokemonData();
+  }
+});
 
-card.addEventListener('touchstart', loadPokemonData);
-
-document.querySelector('.card').addEventListener('click', function() {
+card.addEventListener('click', function() {
   if (!this.classList.contains('rotate')) {
     loadPokemonData();
   }
