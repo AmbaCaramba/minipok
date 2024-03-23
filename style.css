@@ -4,7 +4,7 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #f0f0f0; /* Add background color */
+  background-color: var(--tg-theme-bg-color); /* Add background color */
 }
 
 .card {
