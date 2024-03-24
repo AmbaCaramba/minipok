@@ -19,7 +19,7 @@ function loadPokemonData() {
 loadPokemonData();
 
 var card = document.querySelector('.card')
-card.addEventListener('touchstart',function(e){
+card.addEventListener('touchend',function(e){
   e.preventDefault();
   e.target.click();
   },false);
