@@ -19,10 +19,7 @@ function loadPokemonData() {
 loadPokemonData();
 
 var card = document.querySelector('.card')
-card.addEventListener('touchend',function(e){
-  e.preventDefault();
-  e.target.click();
-  },false);
+
 
 card.addEventListener('click', function() {
   if (!this.classList.contains('rotate')) {
