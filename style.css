@@ -63,8 +63,8 @@ body {
 .card img {
   max-width: none;
   max-height: none;
-  border-radius: 10px; /* Add rounded corners */
-  width: 100%;
+  border-radius: 15px; /* Add rounded corners */
+  width: 200px;
   height: auto;
 }
 
