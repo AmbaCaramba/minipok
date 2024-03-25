@@ -21,7 +21,7 @@ loadPokemonData();
 var card = document.querySelector('.card')
 
 
-card.addEventListener('animationend', function() {
+card.addEventListener('transitionend', function() {
   if (!this.classList.contains('rotate')) {
     setTimeout(() => {
       loadPokemonData();
