@@ -5,7 +5,7 @@ body {
   height: 100vh;
   margin: 0;
   background-color: var(--tg-theme-bg-color); /* Add background color */
-  font-family: "Glass Antiqua", cursive;
+  font-family: "Imbue",serif;
 }
 .prevent-select{
   user-select: none;
@@ -23,11 +23,7 @@ body {
   align-items: center;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 10px solid transparent;
-  border-image: linear-gradient(to right, pink, gold) 10 / 10px round;
-  border-radius: 9px;
-  box-sizing: border-box;
-  background-color: transparent;
+
 }
 
 .card.rotate {
@@ -61,6 +57,11 @@ body {
   background:transparent;
   transform: rotateY(180deg);
   backface-visibility: hidden;
+    border: 10px solid transparent;
+  border-image: linear-gradient(to right, pink, gold) 10 / 10px round;
+  border-radius: 9px;
+  box-sizing: border-box;
+  background-color: transparent;
 }
 
 .card img {
