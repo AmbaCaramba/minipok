@@ -22,11 +22,9 @@ var card = document.querySelector('.card')
 
 card.addEventListener('transitionend', function() {
   if (!this.classList.contains('rotate')) {
-    setTimeout(() => {
-      loadPokemonData();
-    }, 500);
-  }
-  pokemonImage.src = '';
-  pokemonName.textContent = '';
-  pokemonInfo.textContent = '';
+    pokemonImage.src = ' ';
+    pokemonName.textContent = ' ';
+    pokemonInfo.textContent = ' ';
+    loadPokemonData();
+}
 });
