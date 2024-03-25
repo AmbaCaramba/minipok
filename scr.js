@@ -20,6 +20,13 @@ loadPokemonData();
 
 var card = document.querySelector('.card')
 
+card.addEventListener('transitionstart', function() {
+  data => {
+    pokemonImage.src = '';
+    pokemonName.textContent = '';
+    pokemonInfo.textContent = '';
+  }
+});
 
 card.addEventListener('transitionend', function() {
   if (!this.classList.contains('rotate')) {
