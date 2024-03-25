@@ -5,25 +5,29 @@ body {
   height: 100vh;
   margin: 0;
   background-color: var(--tg-theme-bg-color); /* Add background color */
-  font-family: 'Poppins', sans-serif;
-  box-sizing: border-box;
+  font-family: "Glass Antiqua", cursive;
 }
 .prevent-select{
   user-select: none;
 }
 .card {
   position: relative;
-  width: 244px;
-  height: 400px;
+  width: 60vw;
+  height: 53dvh;
   transform-style: preserve-3d;
   transition: transform 1s;
-  border-radius: 12px; /* Add rounded corners */
+  border-radius: 9px; /* Add rounded corners */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add box shadow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 10px solid transparent;
+  border-image: linear-gradient(to right, pink, gold) 10 / 10px round;
+  border-radius: 9px;
+  box-sizing: border-box;
+  background-color: transparent;
 }
 
 .card.rotate {
@@ -47,38 +51,48 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-color:#fff;
   background-image: url('images/card.jpg');
-  background-size: contain;
+  background-size:cover;
 }
 
 .card .back {
 
   background-color: #333;
-  background: linear-gradient(to bottom, #9a92c7, #1b123bce);
+  background:transparent;
   transform: rotateY(180deg);
   backface-visibility: hidden;
 }
 
 .card img {
+  position: absolute;
   max-width: none;
   max-height: none;
-  border-radius: 15px; /* Add rounded corners */
-  width: 200px;
+  border-radius: 9px; /* Add rounded corners */
+  width: 380px;
   height: auto;
+  top:-100px;
+  left:-50px;
+
 }
 
 .card h2 {
+  position: absolute;
   margin-top: 1px;
   font-size: 36px;
   font-weight: bold;
   color:#fff;
+  top:280px;
+  left:70px;
+  
 }
 
 .card p {
+  position: absolute;
   margin-top: 1px;
   font-size: 24px;
   max-width: 300px;
   color:#fff;
   line-height: 1.5;
+  top:330px;
+  left:20px;
 }
