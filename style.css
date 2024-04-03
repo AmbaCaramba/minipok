@@ -70,7 +70,7 @@ body {
 
 .card h2 {
   margin-top: 1px;
-  font-size: 4em;
+  font-size: 3em;
   font-weight: bold;
   color:#fff;
 }
@@ -78,7 +78,7 @@ body {
 .card p {
   margin-left: 15vw;
 
-  font-size: 3em;
+  font-size: 2em;
   max-width: 60vw;
   color:#fff;
   line-height: 1.5;
