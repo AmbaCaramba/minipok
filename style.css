@@ -17,7 +17,6 @@ body {
   height: 148vw;
   transform-style: preserve-3d;
   transition: transform 1s;
-  border-radius: 12px; /* Add rounded corners */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,7 +35,7 @@ body {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 10px; /* Add rounded corners */
+  border-radius: 3em; /* Add rounded corners */
 }
 
 .card .front {
@@ -47,7 +46,6 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-color:#fff;
   background-image: url('images/card.jpg');
   background-size: contain;
 }
@@ -63,7 +61,7 @@ body {
 .card img {
   max-width: none;
   max-height: none;
-  border-radius: 10px; /* Add rounded corners */
+
   width: 80vw;
   height: auto;
 }
